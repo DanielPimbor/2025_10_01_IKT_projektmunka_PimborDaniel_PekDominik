@@ -13,4 +13,4 @@ while True:
         valasz = input('Nem megfelelő válasz próbáld újra: ')
 
 
-print('alma')
+print('alma')xgzk,fhzulluzhligu9iilou
