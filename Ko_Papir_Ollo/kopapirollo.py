@@ -14,9 +14,11 @@ while True:
     if valasz == 'i':
         print('Örülök, hogy így döntöttél!')
         break
+
     elif valasz == 'n':
         print('Pápá!')
         sys.exit()
+        
     else:
         valasz = input('Nem megfelelő válasz próbáld újra: ')
 
@@ -30,10 +32,13 @@ while True:
     while True:
         try:
             valasztas = int(input('Kő, papír vagy olló (1 = Kő, 2 = Papír, 3 = Olló): '))
+
             if 1 <= valasztas <= 3:
                 break
+
             else:
                 print('Helytelen számot adtál meg. (1 = Kő, 2 = Papír, 3 = Olló)')
+
         except ValueError:
             print('Nem megfelelő szám. (1 = Kő, 2 = Papír, 3 = Olló)')
 
@@ -46,18 +51,22 @@ while True:
     if (valasztas == 1 and gep_valasztasa == 3) or \
        (valasztas == 2 and gep_valasztasa == 1) or \
        (valasztas == 3 and gep_valasztasa == 2):
+        
         print('Gratulálok, te győztél!')
+
         pontszamod += 1
-        gyozelmek += 1  # növeli a győzelmek számát
+        gyozelmek += 1
 
     elif gep_valasztasa == valasztas:
         print('Döntetlen.')
-        dontetlenek += 1  # növeli a döntetlenek számát
+
+        dontetlenek += 1
 
     else:
         print('Vesztettél! HAHAHAHA')
+
         gep_pontszama += 1
-        veresegek += 1  # növeli a vereségek számát
+        veresegek += 1
 
     print(f'Pontszámod: {pontszamod}')
     print(f'Gép pontszáma: {gep_pontszama}')
@@ -65,7 +74,8 @@ while True:
     i = input('Újra játszol? i/n: ')
     
     if i.lower() != 'i':
-        print('\n🧾 Végső pontszámok és statisztikák:')
+        print('Végső pontszámok és statisztikák:')
+
         print(f'Pontszámod: {pontszamod}')
         print(f'Gép pontszáma: {gep_pontszama}')
         print(f'Győzelmek száma: {gyozelmek}')
@@ -74,8 +84,10 @@ while True:
 
         if pontszamod > gep_pontszama:
             print('Megnyerted az egész játékot!')
+
         elif pontszamod == gep_pontszama:
             print('Döntetlen lett az összmenet.')
+
         else:
             print('VESZTETTEL HAHAHAHA')
 
