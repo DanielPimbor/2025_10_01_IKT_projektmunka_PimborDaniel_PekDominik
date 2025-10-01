@@ -1,26 +1,27 @@
+import sys
+import random
+
 valasz = input('Köszöntelek a "Kő, papír, olló" játékban. Szeretnél játszani? i/n : ')
 
-import sys
-
-import random
+pontszamod = 0
+gep_pontszama = 0
 
 while True:
     if valasz == 'i':
         print('Örülök, hogy így döntöttél!')
         break
-
     elif valasz == 'n':
         print('Pápá!')
         sys.exit()
-
     else:
         valasz = input('Nem megfelelő válasz próbáld újra: ')
 
 print('Szabályok!')
-print('"Kő" üti az ollót, de veszít a papírral szemben. \n"Papír" üti a követ, de veszít az ollóval szemben. \n"Olló" üti a papírt, de veszít a kővel szemben.')
+print('Kő üti az ollót, de veszít a papírral szemben.')
+print('Papír üti a követ, de veszít az ollóval szemben.')
+print('Olló üti a papírt, de veszít a kővel szemben.')
 
-i = '1'
-while i == '1':
+while True:
 
     while True:
         try:
@@ -28,32 +29,45 @@ while i == '1':
             if 1 <= valasztas <= 3:
                 break
             else:
-                print('Helytelen számot adtál meg. (1 = Kő, 2 = Papír, 3 = Olló) ')
+                print('Helytelen számot adtál meg. (1 = Kő, 2 = Papír, 3 = Olló)')
         except ValueError:
-            print('Nem megfelelő szám. (1 = Kő, 2 = Papír, 3 = Olló) ')
+            print('Nem megfelelő szám. (1 = Kő, 2 = Papír, 3 = Olló)')
 
-    gep_valasztasa = random.randint(1,3)
-
+    gep_valasztasa = random.randint(1, 3)
     fegyverek = {1: "Kő", 2: "Papír", 3: "Olló"}
 
     print(f'A te választásod: {fegyverek[valasztas]}')
     print(f'A gép választása: {fegyverek[gep_valasztasa]}')
 
     if (valasztas == 1 and gep_valasztasa == 3) or \
-        (valasztas == 2 and gep_valasztasa == 1) or \
-        (valasztas == 3 and gep_valasztasa == 2):
+       (valasztas == 2 and gep_valasztasa == 1) or \
+       (valasztas == 3 and gep_valasztasa == 2):
         print('Gratulálok, te győztél!')
+        pontszamod += 1
 
     elif gep_valasztasa == valasztas:
         print('Döntetlen.')
 
     else:
         print('Vesztettél! HAHAHAHA')
+        gep_pontszama += 1
 
-i = input('Újra : 1 , Bezárás : 2 => ')
+    print(f'Pontszámod: {pontszamod}')
+    print(f'Gép pontszáma: {gep_pontszama}')
 
-if i != '1':
-    print('Viszlát!')
-    break
+    i = input('Újra játszol? i/n: ')
+    
+    if i.lower() != 'i':
+        print('Végső pontszámok:')
+        print(f'Pontszámod: {pontszamod}')
+        print(f'Gép pontszáma: {gep_pontszama}')
 
+        if pontszamod > gep_pontszama:
+            print('Megnyerted az egész játékot!')
+        elif pontszamod == gep_pontszama:
+            print('Döntetlen lett az összmenet.')
+        else:
+            print('VESZTETTEL HAHAHAHA')
 
+        print('Viszlát!')
+        break
