@@ -1,5 +1,7 @@
 valasz = input('Köszöntelek a "Kő, papír, olló" játékban. Szeretnél játszani? i/n : ')
 
+import sys
+
 while True:
     if valasz == 'i':
         print('Örülök, hogy így döntöttél!')
@@ -7,10 +9,7 @@ while True:
 
     elif valasz == 'n':
         print('Pápá!')
-        break
+        sys.exit()
 
     else:
         valasz = input('Nem megfelelő válasz próbáld újra: ')
-
-
-print('alma')xgzk,fhzulluzhligu9iilou
