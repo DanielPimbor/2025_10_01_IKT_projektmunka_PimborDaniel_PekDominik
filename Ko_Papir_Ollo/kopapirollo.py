@@ -6,6 +6,10 @@ valasz = input('Köszöntelek a "Kő, papír, olló" játékban. Szeretnél ját
 pontszamod = 0
 gep_pontszama = 0
 
+gyozelmek = 0
+veresegek = 0
+dontetlenek = 0
+
 while True:
     if valasz == 'i':
         print('Örülök, hogy így döntöttél!')
@@ -44,13 +48,16 @@ while True:
        (valasztas == 3 and gep_valasztasa == 2):
         print('Gratulálok, te győztél!')
         pontszamod += 1
+        gyozelmek += 1  # növeli a győzelmek számát
 
     elif gep_valasztasa == valasztas:
         print('Döntetlen.')
+        dontetlenek += 1  # növeli a döntetlenek számát
 
     else:
         print('Vesztettél! HAHAHAHA')
         gep_pontszama += 1
+        veresegek += 1  # növeli a vereségek számát
 
     print(f'Pontszámod: {pontszamod}')
     print(f'Gép pontszáma: {gep_pontszama}')
@@ -58,9 +65,12 @@ while True:
     i = input('Újra játszol? i/n: ')
     
     if i.lower() != 'i':
-        print('Végső pontszámok:')
+        print('\n🧾 Végső pontszámok és statisztikák:')
         print(f'Pontszámod: {pontszamod}')
         print(f'Gép pontszáma: {gep_pontszama}')
+        print(f'Győzelmek száma: {gyozelmek}')
+        print(f'Vereségek száma: {veresegek}')
+        print(f'Döntetlenek száma: {dontetlenek}')
 
         if pontszamod > gep_pontszama:
             print('Megnyerted az egész játékot!')
